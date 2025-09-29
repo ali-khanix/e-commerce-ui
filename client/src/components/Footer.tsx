@@ -10,6 +10,7 @@ const Footer = () => {
           <p className="hidden md:block font-medium text-md tracking-wider">
             TRENDLAMA.
           </p>
+          <span></span>
         </Link>
         <p>h 2025 Alikhanix</p>
         <p>All rights reserved</p>
