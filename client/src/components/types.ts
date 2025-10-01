@@ -1,4 +1,7 @@
+import { JSX } from "react";
+
 export type ProductType = {
+    map(arg0: (product: ProductsType) => JSX.Element): import("react").ReactNode;
     id: string | number;
     name: string;
     description: string;

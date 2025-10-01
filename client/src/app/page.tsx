@@ -9,7 +9,8 @@ const Homepage = () => {
           src="/grand_seiko_banner.webp"
           alt="ساعت گرند سیکو"
           fill
-          className="object-cover -"
+          className="object-cover"
+          priority
         />
       </div>
       <ProductList />
