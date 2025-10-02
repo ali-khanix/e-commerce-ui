@@ -1,9 +1,7 @@
 import ProductList from "@/components/ProductList";
 import Image from "next/image";
-import { connection } from "next/server";
 
 export default async function Homepage() {
-  await connection();
   return (
     <div className="">
       <div className="relative aspect-[3/1]">
