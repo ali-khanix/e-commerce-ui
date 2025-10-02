@@ -57,15 +57,14 @@ const Categories = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-
   const selectedCategory = searchParams.get("category");
+  console.log(selectedCategory);
 
   function handleChange(value: string | null) {
     const params = new URLSearchParams(searchParams);
     params.set("category", value || "all");
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }
-
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 bg-gray-100 p-2 rounded-lg mb-4 text-sm">
       {categories.map((category) => (

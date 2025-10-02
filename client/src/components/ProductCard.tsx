@@ -7,6 +7,7 @@ import Image from "next/image";
 const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
+      {/* IMAGE */}
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-[2/3]">
           <Image
@@ -17,6 +18,49 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           />
         </div>
       </Link>
+
+      {/* PRODUCT DETAILS */}
+      <div className="flex flex-col gap-4 p-4">
+        {/* NAME */}
+        <h1 className="font-medium ">{product.name}</h1>
+        <p className="text-sm text-gray-500">{product.shortDescription}</p>
+        {/* OPTIONS */}
+        <div className="flex items-center gap-4 text-xs">
+          {/* SIZES */}
+          <div className="flex flex-col gap-1">
+            <span className="text-gray-500">Size</span>
+            <select
+              name="size"
+              id="size"
+              className="ring ring-gray-300 rounded-md px-2 py-1"
+            >
+              {product.sizes.map((size) => (
+                <option key={size} value={size}>
+                  {size.toUpperCase()}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* COLORS */}
+          <div className="flex flex-col gap-1">
+            <span className="text-gray-500">Color</span>
+            <div className="flex items-center gap-2">
+              {product.colors.map((color) => (
+                <div key={color} className="">
+                  <div
+                    className="w-[14px] h-[14px] rounded-full"
+                    style={{ backgroundColor: color }}
+                  ></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* PRICE AND ADD TO CART BUTTON */}
+        <div className="flex items-center justify-between">
+          <p className="">{product.price.toFixed(2)}</p>
+        </div>
+      </div>
     </div>
   );
 };
