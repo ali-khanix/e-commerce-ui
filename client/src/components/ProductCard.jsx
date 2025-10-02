@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ProductType } from "./types";
 import Image from "next/image";
 
-const ProductCard = ({ product }: { product: ProductType }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
       {/* IMAGE */}

@@ -1,9 +1,8 @@
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
-import { ProductsType } from "./types";
 
 // TEMPORARY
-const products: ProductsType = [
+const products = [
   {
     id: 1,
     name: "Adidas CoreFit T-Shirt",
