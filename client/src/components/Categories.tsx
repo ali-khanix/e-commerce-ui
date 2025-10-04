@@ -15,7 +15,7 @@ const categories = [
   {
     name: "All",
     icon: <ShoppingBasket className="w-4 h-4" />,
-    slug: "all",
+    slug: "al",
   },
   {
     name: "T-shirts",
