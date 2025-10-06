@@ -74,7 +74,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
                     productTypes.color === color
                       ? "border-gray-400"
                       : "border-gray-200"
-                  } rounded-full p-[1.2px]`}
+                  } rounded-full p-[1px]`}
                   onClick={() =>
                     handleProductType({ type: "color", value: color })
                   }

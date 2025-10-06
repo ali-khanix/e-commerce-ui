@@ -1,7 +1,12 @@
 import ProductList from "@/components/ProductList";
 import Image from "next/image";
 
-export default async function Homepage() {
+async function Homepage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category: string }>;
+}) {
+  const cateogry = (await searchParams).category;
   return (
     <div className="">
       <div className="relative aspect-[3/1]">
@@ -13,7 +18,9 @@ export default async function Homepage() {
           priority
         />
       </div>
-      <ProductList />
+      <ProductList category={cateogry} />
     </div>
   );
 }
+
+export default Homepage;
