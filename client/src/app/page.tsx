@@ -18,7 +18,7 @@ async function Homepage({
           priority
         />
       </div>
-      <ProductList category={cateogry} />
+      <ProductList category={cateogry} params="homepage" />
     </div>
   );
 }
