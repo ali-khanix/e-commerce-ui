@@ -1,6 +1,10 @@
 "use client";
 
 import { CartItemsType } from "@/components/types";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ArrowRight, RecycleIcon } from "lucide-react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const steps = [
@@ -77,12 +81,23 @@ const cartItems: CartItemsType = [
 
 const CartPage = () => {
   const searchParams = useSearchParams();
-  console.log(searchParams);
   const router = useRouter();
 
   const activeStep = parseInt(searchParams.get("step") || "1");
-  console.log(activeStep);
-  console.log(searchParams);
+
+  function arrowAnim() {
+    useGSAP(() => {
+      gsap.fromTo(
+        "#arrow-right",
+        {
+          x: 0,
+        },
+        {
+          x: 100,
+        }
+      );
+    });
+  }
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center mt-8">
@@ -114,6 +129,50 @@ const CartPage = () => {
             </p>
           </div>
         ))}
+      </div>
+
+      {/* CART ITEMS & DETAILS */}
+      <div className="w-full flex flex-col lg:flex-row gap-16">
+        {/* CART ITEMS */}
+        <div className="w-full lg:w-7/12 shadow-lg border-2 border-gray-100 rounded-lg flex flex-col gap-8">
+          <h2>Cart Items</h2>
+
+          {cartItems.map((item) => (
+            <div className="flex items-center justify-between" key={item.id}>
+              <Image
+                src={item.images.gray}
+                alt={item.name}
+                width={64}
+                height={64}
+              />
+
+              <div className="flex flex-col">
+                <h3>{item.name}</h3>
+                <span>{item.quantity}</span>
+                <span>{item.selectedSize}</span>
+                <span>{item.selectedColor}</span>
+                <span>{item.price}</span>
+              </div>
+
+              <RecycleIcon />
+            </div>
+          ))}
+        </div>
+
+        {/* CART DETAILS */}
+        <div className="w-full lg:w-5/12 shadow-lg border-2 border-gray-100 rounded-lg flex flex-col gap-8 p-8">
+          <h2>Cart Details</h2>
+          <div className="">
+            <button className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300">
+              Continue{" "}
+              <ArrowRight
+                id="arrow-right"
+                onMouseEnter={() => arrowAnim()}
+                className="w-3 h-3"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
