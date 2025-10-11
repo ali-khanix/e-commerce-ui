@@ -1,8 +1,6 @@
 "use client";
 
 import { CartItemsType } from "@/components/types";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { ArrowRight, RecycleIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -85,20 +83,6 @@ const CartPage = () => {
 
   const activeStep = parseInt(searchParams.get("step") || "1");
 
-  function arrowAnim() {
-    useGSAP(() => {
-      gsap.fromTo(
-        "#arrow-right",
-        {
-          x: 0,
-        },
-        {
-          x: 100,
-        }
-      );
-    });
-  }
-
   return (
     <div className="flex flex-col gap-8 items-center justify-center mt-8">
       {/* TITLE */}
@@ -162,16 +146,18 @@ const CartPage = () => {
         {/* CART DETAILS */}
         <div className="w-full lg:w-5/12 shadow-lg border-2 border-gray-100 rounded-lg flex flex-col gap-8 p-8">
           <h2>Cart Details</h2>
-          <div className="">
-            <button className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300">
-              Continue{" "}
-              <ArrowRight
-                id="arrow-right"
-                onMouseEnter={() => arrowAnim()}
-                className="w-3 h-3"
-              />
-            </button>
+          <div className="flex justify-between text-sm">
+            <p className="text-gray-500">Subtotal</p>
+            <p className="font-medium">
+              $
+              {cartItems
+                .reduce((acc, item) => acc + item.price * item.quantity, 0)
+                .toFixed(2)}
+            </p>
           </div>
+          <button className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2 hover:bg-gray-900 transition-all duration-300">
+            Continue <ArrowRight id="arrow-right" className="w-3 h-3" />
+          </button>
         </div>
       </div>
     </div>
