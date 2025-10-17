@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-![alt text](https://cdn.hexnode.com/blogs/wp-content/uploads/2023/03/App-management-101-Cover-Image.png)
+![alt text](./public/Screenshot%202025-10-17%20161620.webp)
 
 ## Getting Started
 
