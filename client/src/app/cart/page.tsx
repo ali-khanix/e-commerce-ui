@@ -121,7 +121,12 @@ const CartPage = () => {
       {/* STEPS & DETAILS */}
       <div className="w-full flex flex-col lg:flex-row gap-16">
         {/* STEPS */}
-        <div className="cartSteps w-7/12">1</div>
+        <div className="cartSteps w-7/12">
+          <h2 className="font-semibold">Cart Details</h2>
+
+          <div className=""></div>
+          <button className=""></button>
+        </div>
 
         {/* DETAILS */}
         <div className="cartSteps w-5/12">2</div>
