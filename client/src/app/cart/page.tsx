@@ -3,6 +3,7 @@
 import PaymentForm from "@/components/PaymentForm";
 import ShippingForm from "@/components/ShippingForm";
 import { CartItemsType } from "@/components/types";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
@@ -87,9 +88,8 @@ const CartPage = () => {
 
   const [shippingForm, setShippingForm] = useState(null);
 
-  console.log(router);
-
   const activeStep = parseInt(searchParams.get("step") || "1");
+  console.log(activeStep);
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center mt-8">
@@ -127,6 +127,7 @@ const CartPage = () => {
       </div>
 
       {/* STEPS & DETAILS */}
+
       <div className="w-full flex flex-col lg:flex-row gap-16">
         {/* STEPS */}
         <div className="cartSteps w-7/12">
@@ -165,7 +166,7 @@ const CartPage = () => {
               </div>
             ))
           ) : activeStep === 2 ? (
-            <ShippingForm />
+            <ShippingForm setShippingForm={setShippingForm} />
           ) : activeStep === 3 && shippingForm ? (
             <PaymentForm />
           ) : (
