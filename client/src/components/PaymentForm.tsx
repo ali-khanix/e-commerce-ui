@@ -2,7 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { PaymentFormInputs, paymentFormSchema } from "./types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./ui/button";
-import { ArrowRight, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
