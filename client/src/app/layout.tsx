@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lama Dev",
-  description: "فروش ساعت های اورجینال",
+  title: "Trendlama - Best Clothes",
+  description: "Trendlama is the best place to find the best clothes",
 };
 
 export default function RootLayout({
