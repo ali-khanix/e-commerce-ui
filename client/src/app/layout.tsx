@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "گالری ساعت نقره ای",
+  title: "Lama Dev",
   description: "فروش ساعت های اورجینال",
 };
 

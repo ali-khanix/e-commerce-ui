@@ -1,5 +1,7 @@
 // Temp Data
 import { ProductType } from "@/components/types";
+import Image from "next/image";
+import { string } from "zod";
 
 const product: ProductType = {
   id: 1,
@@ -18,8 +20,32 @@ const product: ProductType = {
   },
 };
 
-const ProductPage = () => {
-  return <div className="">ProductPage</div>;
+const ProductPage = async ({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ color: string; size: string }>;
+}) => {
+  const { size, color } = await searchParams;
+  const selectedSize = size || (product.sizes[0] as string);
+  const selectedColor = color || (product.colors[0] as string);
+  return (
+    <div className="flex flex-col gap-4 lg:flex-row md:gap-12 mt-12">
+      {/* IMAGE */}
+      <div className="w-full lg:w-5/12 relative aspect-[2/3]">
+        <Image
+          src={product.images[selectedColor]}
+          alt={product.name}
+          fill
+          className="object-contain rounded-md"
+        />
+      </div>
+
+      {/* DETAILS */}
+      <div className="w-full lg:w-7/12"></div>
+    </div>
+  );
 };
 
 export default ProductPage;
